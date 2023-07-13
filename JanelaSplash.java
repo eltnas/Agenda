@@ -31,13 +31,13 @@ public class JanelaSplash extends JWindow {
         progressBar.setPreferredSize(new Dimension(300, 20));
         content.add(progressBar, BorderLayout.SOUTH);
 
-        addWindowListener(new java.awt.event.WindowAdapter() {
+        addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosed(WindowEvent e) {
                 super.windowClosed(e);
                 SwingUtilities.invokeLater(new Runnable() {
                     public void run() {
-                        janelaLogin();
+                        Login.exibir();
                     }
                 });
             }
@@ -50,17 +50,7 @@ public class JanelaSplash extends JWindow {
             e.printStackTrace();
         }
         setVisible(false);
-    }
-
-    private void janelaLogin() {
-        JFrame janelaLogin = new JFrame("Janela de Login");
-        janelaLogin.setSize(400, 300);
-        janelaLogin.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        JLabel label = new JLabel("Bem-vindo!");
-        janelaLogin.add(label);
-
-        janelaLogin.setVisible(true);
+        dispose();
     }
 
     public static void main(String[] args) {
